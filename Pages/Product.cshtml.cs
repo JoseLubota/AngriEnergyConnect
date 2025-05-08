@@ -10,6 +10,9 @@ namespace AngriEnergyConnect.Pages
         [BindProperty]
         public Product product { get; set; }
 
+        [BindProperty(SupportsGet =true)]
+        public int? filterFarmerId { get; set; }
+
         public List<Product> userProducts { get; set; } = new();
 
         public async Task<IActionResult> OnPostAsync()
@@ -31,9 +34,20 @@ namespace AngriEnergyConnect.Pages
                 {
                     userProducts = await _productService.GetBtUserIdAsync(userId.Value);
                 }
-                else
+                else // Employee
                 {
-                    userProducts = await _productService.GetAllAsync();
+                    var allProducts = await _productService.GetAllAsync();
+                    if (filterFarmerId.HasValue)
+                    {
+                        userProducts = allProducts
+                            .Where(p => p.userID == filterFarmerId.Value)
+                            .ToList();
+                    }
+                    else
+                    {
+                        userProducts = allProducts;
+                    }
+                    
                 }
 
             }

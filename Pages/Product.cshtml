@@ -8,9 +8,19 @@
 
     <h1>Please Log in</h1>
 
-}else if(accountType == "Employee"){
+@* Only for Employees *@
+}else if(userID!= null && accountType == "Employee"){
 
-    <h2>See All Products</h2>
+    <h2>View All Products and Filter by Farmer ID</h2>
+
+    <form method="get">
+        <label for="filterFarmerId">Farmer ID: </label>
+        <input type="number" asp-for="filterFarmerId"/>
+
+        <button type="submit">Apply Filter</button>
+
+    </form>
+
     @if (Model.userProducts.Any())
     {
         <table>
@@ -39,7 +49,7 @@
     }
     else
     {
-        <p>Farmers have not added any product yet.</p>
+        <p>No Farmer has this ID.</p>
     }
 
 }else if(accountType == "Farmer"){
