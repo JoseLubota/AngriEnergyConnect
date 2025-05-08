@@ -1,0 +1,107 @@
+﻿@page
+@model AngriEnergyConnect.Pages.ProductModel
+@{
+    int? userID = HttpContext.Session.GetInt32("UserID");
+    string? accountType = HttpContext.Session.GetString("accountType");
+}
+@if(userID == null){
+
+    <h1>Please Log in</h1>
+
+}else if(accountType == "Employee"){
+
+    <h2>See All Products</h2>
+    @if (Model.userProducts.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Farmer ID</th>
+                    <th>product ID</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Production Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var prod in Model.userProducts)
+                {
+                    <tr>
+                        <td>@prod.userID</td>
+                        <td>@prod.productID</td>
+                        <td>@prod.productName</td>
+                        <td>@prod.category</td>
+                        <td>@prod.productionDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Farmers have not added any product yet.</p>
+    }
+
+}else if(accountType == "Farmer"){
+
+    <h2>Add Product</h2>
+
+    <form method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <label>Name</label>
+        <input asp-for="product.productName" />
+        <span asp-validation-for="product.productName" class="text-danger"></span>
+
+        <label>Category</label>
+        <select asp-for="product.category">
+            <option value="">-- Select Category --</option>
+            <option value="Foods">Foods</option>
+            <option value="Fibers">Fibers</option>
+            <option value="Fuels">Fuels</option>
+            <option value="Raw Materials">Raw Materials</option>
+            <option value="Others">Others</option>
+        </select>
+        <span asp-validation-for="product.category" class="text-danger"></span>
+
+        <label>Production Date</label>
+        <input asp-for="product.productionDate" type="date"/>
+        <span asp-validation-for="product.productionDate" class="text-danger"></span>
+
+
+        <input asp-for="product.userID" value="@userID" hidden />
+
+        <button type="submit">Save</button>
+
+    </form>
+
+    <h2>See your Products below</h2>
+
+    @if(Model.userProducts.Any()){
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Production Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var prod in Model.userProducts){
+                    <tr>
+                        <td>@prod.productID</td>
+                        <td>@prod.productName</td>
+                        <td>@prod.category</td>
+                        <td>@prod.productionDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else{
+        <p>You don not have any product added yet.</p>
+    }
+
+}

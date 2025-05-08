@@ -1,0 +1,70 @@
+﻿@page
+@model AngriEnergyConnect.Pages.SignUpModel
+@{
+    int? userID = HttpContext.Session.GetInt32("UserID");
+    string? accountType = HttpContext.Session.GetString("accountType");
+}
+
+@if(userID == null){
+    <h2>Sign Up - Create your Employee Account</h2>
+    <form method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <label>Name</label>
+        <input asp-for="user.name" />
+        <span asp-validation-for="user.name" class="text-danger"></span>
+
+        <label>Surname</label>
+        <input asp-for="user.surname" />
+        <span asp-validation-for="user.surname" class="text-danger"></span>
+
+        <label>Email</label>
+        <input asp-for="user.email" />
+        <span asp-validation-for="user.email" class="text-danger"></span>
+
+        <label>Password</label>
+        <input asp-for="user.password" />
+        <span asp-validation-for="user.password" class="text-danger"></span>
+
+        <input asp-for="user.accountType" value="Employee" hidden />
+
+        <button type="submit">Save</button>
+
+    </form>
+
+}else if(userID!= null && accountType == "Employee"){
+    <h2>Create a Farmer Account</h2>
+
+    <form method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <label>Name</label>
+        <input asp-for="user.name" />
+        <span asp-validation-for="user.name" class="text-danger"></span>
+
+        <label>Surname</label>
+        <input asp-for="user.surname" />
+        <span asp-validation-for="user.surname" class="text-danger"></span>
+
+        <label>Email</label>
+        <input asp-for="user.email" />
+        <span asp-validation-for="user.email" class="text-danger"></span>
+
+        <label>Password</label>
+        <input asp-for="user.password" />
+        <span asp-validation-for="user.password" class="text-danger"></span>
+
+        <input asp-for="user.accountType" value="Farmer" hidden />
+
+        <button type="submit">Save</button>
+
+    </form>
+
+}
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
