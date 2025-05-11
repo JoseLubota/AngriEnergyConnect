@@ -13,13 +13,25 @@ namespace AngriEnergyConnect.Pages
         [BindProperty(SupportsGet =true)]
         public int? filterFarmerId { get; set; }
 
+        [BindProperty(SupportsGet =true)]
+        public string? action {  get; set; }
+
         public List<Product> userProducts { get; set; } = new();
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
 
-            await _productService.AddAsync(product); 
+            await _productService.AddAsync(product);
+
+            int? userId = HttpContext.Session.GetInt32("UserID");
+            string? accountType = HttpContext.Session.GetString("accountType");
+
+
+            if (accountType == "Farmer")
+            {
+                userProducts = await _productService.GetBtUserIdAsync(userId.Value);
+            }
             return Page();
         }
         
@@ -37,7 +49,13 @@ namespace AngriEnergyConnect.Pages
                 else // Employee
                 {
                     var allProducts = await _productService.GetAllAsync();
-                    if (filterFarmerId.HasValue)
+
+                    if(action == "clear")
+                    {
+                        // Clear the filter
+                        filterFarmerId = null;
+                        userProducts = allProducts;
+                    }else if (filterFarmerId.HasValue)
                     {
                         userProducts = allProducts
                             .Where(p => p.userID == filterFarmerId.Value)

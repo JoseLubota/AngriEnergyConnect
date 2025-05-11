@@ -5,69 +5,79 @@
     string? accountType = HttpContext.Session.GetString("accountType");
     ViewData["Title"] = "Home page";
 }
+<section class="page-section">
+    <div class="text-center">
+        <h1>Welcome</h1>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-@if (userID != null && accountType == "Employee")
-{
-    <h2>Welcome User @userID</h2>
-
-
-
-    <form method="get">
-
-        <label>From: </label>
-        <input asp-for="fromDate" type="date" />
-
-        <label>To </label>
-        <input asp-for="fromDate" type="date"/>
-
-        <label>Category</label>
-
-        <select asp-for="category">
-            <option value="">All</option>
-            <option value="Foods">Foods</option>
-            <option value="Fibers">Fibers</option>
-            <option value="Fuels">Fuels</option>
-            <option value="Raw Materials">Raw Materials</option>
-            <option value="Others">Others</option>
-        </select>
-
-        <button type="submit">Filter</button>
-    </form>
-
-    @if (Model.filteredProducts.Any())
+    @if (userID != null && accountType == "Employee")
     {
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Product Name</th>
-                    <th>Category</th>
-                    <th>Production Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var prod in Model.filteredProducts)
-                {
+        <p>User ID:  @userID</p>
+        <p>Account Type: @accountType</p>
+
+        <br />
+        <p>Filter the table using the form below</p>
+
+        <form class="form-container2" method="get">
+
+            <label>From: </label>
+            <input asp-for="fromDate" type="date" />
+
+            <label>To </label>
+            <input asp-for="fromDate" type="date" />
+
+            <label>Category</label>
+
+            <select asp-for="category">
+                <option value="">All</option>
+                <option value="Foods">Foods</option>
+                <option value="Fibers">Fibers</option>
+                <option value="Fuels">Fuels</option>
+                <option value="Raw Materials">Raw Materials</option>
+                <option value="Others">Others</option>
+            </select>
+
+            <button type="submit">Filter</button>
+        </form>
+
+        @if (Model.filteredProducts.Any())
+        {
+            <table class="table-product">
+                <thead>
                     <tr>
-                        <td>@prod.productID</td>
-                        <td>@prod.productName</td>
-                        <td>@prod.category</td>
-                        <td>@prod.productionDate</td>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Production Date</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var prod in Model.filteredProducts)
+                    {
+                        <tr>
+                            <td>@prod.productID</td>
+                            <td>@prod.productName</td>
+                            <td>@prod.category</td>
+                            <td>@prod.productionDate</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No product found.</p>
+        }
     }
-    else
+    else if(userID != null && accountType == "Farmer")
     {
-        <p>No product found.</p>
+        <p>User ID:  @userID</p>
+        <p>Account Type: @accountType</p>
+
+    }else{
+
+        <p>Please loggin to access this website functions</p>
     }
 
-}else{
-    <p>Please login in an employee account to access this page funcitons</p>
-}
+
+</section>

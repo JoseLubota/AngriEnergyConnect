@@ -4,114 +4,144 @@
     int? userID = HttpContext.Session.GetInt32("UserID");
     string? accountType = HttpContext.Session.GetString("accountType");
 }
-@if(userID == null){
-
-    <h1>Please Log in</h1>
-
-@* Only for Employees *@
-}else if(userID!= null && accountType == "Employee"){
-
-    <h2>View All Products and Filter by Farmer ID</h2>
-
-    <form method="get">
-        <label for="filterFarmerId">Farmer ID: </label>
-        <input type="number" asp-for="filterFarmerId"/>
-
-        <button type="submit">Apply Filter</button>
-
-    </form>
-
-    @if (Model.userProducts.Any())
+<section class="page-section">
+    @if (userID == null)
     {
-        <table>
-            <thead>
-                <tr>
-                    <th>Farmer ID</th>
-                    <th>product ID</th>
-                    <th>Product Name</th>
-                    <th>Category</th>
-                    <th>Production Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var prod in Model.userProducts)
-                {
-                    <tr>
-                        <td>@prod.userID</td>
-                        <td>@prod.productID</td>
-                        <td>@prod.productName</td>
-                        <td>@prod.category</td>
-                        <td>@prod.productionDate</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <div class="text-center">
+            <p>Please Log in</p>
+        </div>
+
+
+        @* Only for Employees *@
     }
-    else
+    else if (userID != null && accountType == "Employee")
     {
-        <p>No Farmer has this ID.</p>
-    }
+        <div class="text-center">
+            <h1>View All Products and Filter by Farmer ID</h1>
+        </div>
 
-}else if(accountType == "Farmer"){
+        <br />
+        <br />
 
-    <h2>Add Product</h2>
+        <form method="get" class="form-container2">
 
-    <form method="post">
+            <label for="filterFarmerId">Farmer ID: </label>
+            <input type="number" asp-for="filterFarmerId" />
 
-        <div asp-validation-summary="All" class="text-danger"></div>
+            <button type="submit" name="action" value="apply">Apply Filter</button>
+            <button type="submit" name="action" value="clear">Clear</button>
 
-        <label>Name</label>
-        <input asp-for="product.productName" />
-        <span asp-validation-for="product.productName" class="text-danger"></span>
+        </form>
 
-        <label>Category</label>
-        <select asp-for="product.category">
-            <option value="">-- Select Category --</option>
-            <option value="Foods">Foods</option>
-            <option value="Fibers">Fibers</option>
-            <option value="Fuels">Fuels</option>
-            <option value="Raw Materials">Raw Materials</option>
-            <option value="Others">Others</option>
-        </select>
-        <span asp-validation-for="product.category" class="text-danger"></span>
-
-        <label>Production Date</label>
-        <input asp-for="product.productionDate" type="date"/>
-        <span asp-validation-for="product.productionDate" class="text-danger"></span>
-
-
-        <input asp-for="product.userID" value="@userID" hidden />
-
-        <button type="submit">Save</button>
-
-    </form>
-
-    <h2>See your Products below</h2>
-
-    @if(Model.userProducts.Any()){
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Product Name</th>
-                    <th>Category</th>
-                    <th>Production Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach(var prod in Model.userProducts){
+        @if (Model.userProducts.Any())
+        {
+            <table class="table-product">
+                <thead>
                     <tr>
-                        <td>@prod.productID</td>
-                        <td>@prod.productName</td>
-                        <td>@prod.category</td>
-                        <td>@prod.productionDate</td>
+                        <th>Farmer ID</th>
+                        <th>product ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Production Date</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var prod in Model.userProducts)
+                    {
+                        <tr>
+                            <td>@prod.userID</td>
+                            <td>@prod.productID</td>
+                            <td>@prod.productName</td>
+                            <td>@prod.category</td>
+                            <td>@prod.productionDate</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No Farmer has this ID.</p>
+        }
+
     }
-    else{
-        <p>You don not have any product added yet.</p>
+    else if (accountType == "Farmer")
+    {
+        <div class="text-center">
+            <h1>Add Product</h1>
+        </div>
+
+        <br />
+        <br />
+
+        <form method="post" class="form-container">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="input-field">
+                <input asp-for="product.productName" />
+                <label>Name</label>
+                <span asp-validation-for="product.productName" class="text-danger"></span>
+
+            </div>
+
+            <div class="select-field">
+                <label>Category</label>
+                <select asp-for="product.category">
+                    <option value="">-- Select Category --</option>
+                    <option value="Foods">Foods</option>
+                    <option value="Fibers">Fibers</option>
+                    <option value="Fuels">Fuels</option>
+                    <option value="Raw Materials">Raw Materials</option>
+                    <option value="Others">Others</option>
+                </select>
+                <span asp-validation-for="product.category" class="text-danger"></span>
+            </div>
+
+            <div class="input-field">
+                <input asp-for="product.productionDate" type="date" />
+                <label>Production Date</label>
+                <span asp-validation-for="product.productionDate" class="text-danger"></span>
+            </div>
+
+            <input asp-for="product.userID" value="@userID" hidden />
+
+            <div class="buttom-field">
+                <button type="submit">Save</button>
+            </div>
+
+        </form>
+
+        <p>See your Products below</p>
+
+        @if (Model.userProducts.Any())
+        {
+            <table class="table-product">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Production Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var prod in Model.userProducts)
+                    {
+                        <tr>
+                            <td>@prod.productID</td>
+                            <td>@prod.productName</td>
+                            <td>@prod.category</td>
+                            <td>@prod.productionDate</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>You don not have any product added yet or you if you recently addded a product try leaving and entering this page.</p>
+        }
+
     }
 
-}
+</section>

@@ -4,30 +4,51 @@
     int? userID = HttpContext.Session.GetInt32("UserID");
     var result = TempData["LoginResult"] as String;
 }
-@if(userID == null){
-    <form method="post">
-        <label>Email</label>
-        <input asp-for="email" type="email" required />
+<section class="page-section">
+    @if (userID == null)
+    {
+        <div class="text-center">
+            <h1 class="display-4">Login</h1>
+        </div>
 
-        <label>Password</label>
-        <input asp-for="password" type="password" required />
+        <form class="form-container" method="post">
+            <div class="input-field">
+                <input asp-for="email" type="email" required />
+                <label>Email</label>
+            </div>
 
-        <button type="submit">Login</button>
+            <div class="input-field">
+                <input asp-for="password" type="password" required />
+                <label>Password</label>
+            </div>
 
-    </form>
+            <div class="buttom-field">
+                <button type="submit">Login</button>
+            </div>
 
-}else{
 
-    <h2>Logout</h2>
-    <a asp-page="/Shared/Logout">Click here to logout</a>
+        </form>
 
-}
+    }
+    else
+    {
+        <div class="text-center">
+            <h1>Logout</h1>
+        </div>
+        
+        <a asp-page="/Shared/Logout">Click here to logout</a>
 
-@if(result == "sucess"){
+    }
 
-    <script>alert("Login successful!");</script>
+    @if (result == "sucess")
+    {
 
-}else if (result == "fail"){
+        <script>alert("Login successful!");</script>
 
-    <script>alert("Invalid Email or Password. Please Try Again");</script>
-}
+    }
+    else if (result == "fail")
+    {
+
+        <script>alert("Invalid Email or Password. Please Try Again");</script>
+    }
+</section>

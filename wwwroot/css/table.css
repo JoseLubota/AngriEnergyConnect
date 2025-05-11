@@ -1,0 +1,59 @@
+﻿.table-product {
+    color: white;
+    border: 2px white solid;
+    margin: 80px 5px 10px 5px;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    height: 200px;
+    overflow: hidden;
+    background-color: rgb(30,30,30);
+}
+
+    .table-product tr {
+        border: 1px white solid;
+    }
+    .table-product th {
+        padding: 20px;
+        vertical-align: middle;
+    }
+    .table-product td {
+        padding: 20px;
+        vertical-align: middle;
+    }
+
+
+.form-container2{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid white;
+    padding: 10px 15px;
+    width: fit-content;
+    margin-left: 20px;
+    background-color: transparent;
+}
+.form-container2 label{
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.form-container2 input[type="date"]::placeholder,
+.form-container2 select option{
+    color: black;
+}
+.form-container2 button{
+    background-color: white;
+    color: black;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+.form-container2 button:hover{
+    background-color: crimson;
+    color: white;
+}
