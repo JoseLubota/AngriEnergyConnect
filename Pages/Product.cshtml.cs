@@ -32,9 +32,9 @@ namespace AngriEnergyConnect.Pages
             {
                 userProducts = await _productService.GetBtUserIdAsync(userId.Value);
             }
+
             return Page();
         }
-        
 
         public async Task OnGetAsync()
         {
