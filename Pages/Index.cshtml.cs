@@ -8,6 +8,8 @@ namespace AngriEnergyConnect.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+
+        // Creates variabble to handle product services 
         private readonly ProductService _productService;
 
         public IndexModel(ILogger<IndexModel> logger, ProductService productService)
@@ -15,6 +17,9 @@ namespace AngriEnergyConnect.Pages
             _logger = logger;
             _productService = productService;
         }
+        //---------------------------------------------------------------------------------------------//
+        // Variables to receive page data
+        //---------------------------------------------------------------------------------------------//
         [BindProperty(SupportsGet =true)]
         public DateOnly? fromDate { get; set; }
 
@@ -24,8 +29,12 @@ namespace AngriEnergyConnect.Pages
         [BindProperty(SupportsGet = true)]
         public string? category { get; set; }
 
+        // List for filtered products 
         public List<Product> filteredProducts { get; set; } = new();
 
+        //---------------------------------------------------------------------------------------------//
+        // On Get filter table data and retrieve it
+        //---------------------------------------------------------------------------------------------//
         public async void OnGetAsync()
         {
             var allProducts = await _productService.GetAllAsync();
@@ -39,3 +48,4 @@ namespace AngriEnergyConnect.Pages
         }
     }
 }
+//--------------------------------...END OF FILE...-------------------------------------------------------------//

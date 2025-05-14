@@ -17,6 +17,8 @@
     .table-product th {
         padding: 20px;
         vertical-align: middle;
+        background-color: white;
+        color: black;
     }
     .table-product td {
         padding: 20px;

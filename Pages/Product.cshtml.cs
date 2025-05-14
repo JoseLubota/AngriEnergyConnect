@@ -7,6 +7,9 @@ namespace AngriEnergyConnect.Pages
 {
     public class ProductModel(ProductService _productService) : PageModel
     {
+        //---------------------------------------------------------------------------------------------//
+        // Variables to receive page data
+        //---------------------------------------------------------------------------------------------//
         [BindProperty]
         public Product product { get; set; }
 
@@ -15,9 +18,12 @@ namespace AngriEnergyConnect.Pages
 
         [BindProperty(SupportsGet =true)]
         public string? action {  get; set; }
-
+        // List for products
         public List<Product> userProducts { get; set; } = new();
 
+        //---------------------------------------------------------------------------------------------//
+        // When Submitting -  save products data into database for a specific farmer
+        //---------------------------------------------------------------------------------------------//
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
@@ -35,7 +41,9 @@ namespace AngriEnergyConnect.Pages
 
             return Page();
         }
-
+        //---------------------------------------------------------------------------------------------//
+        // On Get - Check account type and retrieve data to display based on this.
+        //---------------------------------------------------------------------------------------------//
         public async Task OnGetAsync()
         {
             int? userId = HttpContext.Session.GetInt32("UserID");
@@ -72,3 +80,4 @@ namespace AngriEnergyConnect.Pages
         }
     }
 }
+//--------------------------------...END OF FILE...-------------------------------------------------------------//

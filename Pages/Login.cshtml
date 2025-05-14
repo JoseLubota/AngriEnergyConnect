@@ -5,12 +5,17 @@
     var result = TempData["LoginResult"] as String;
 }
 <section class="page-section">
+    <!-- .................................................................................................................... -->
+    <!-- Validation to decide what to show on the web page -->
+    <!-- .................................................................................................................... -->
     @if (userID == null)
     {
         <div class="text-center">
             <h1 class="display-4">Login</h1>
         </div>
-
+        <!-- .................................................................................................................... -->
+        <!-- Form to validate email and password for loggin -->
+        <!-- .................................................................................................................... -->
         <form class="form-container" method="post">
             <div class="input-field">
                 <input asp-for="email" type="email" required />
@@ -35,11 +40,13 @@
         <div class="text-center">
             <h1>Logout</h1>
         </div>
-        
+        <!-- Redirects user to logout.-->
         <a asp-page="/Shared/Logout">Click here to logout</a>
 
     }
-
+    <!-- .................................................................................................................... -->
+    <!-- Checks login status and return message -->
+    <!-- .................................................................................................................... -->
     @if (result == "sucess")
     {
 
@@ -52,3 +59,4 @@
         <script>alert("Invalid Email or Password. Please Try Again");</script>
     }
 </section>
+<!-- ..........................................END OF FILE .......................................................................... -->

@@ -8,14 +8,18 @@ namespace AngriEnergyConnect.Pages
     public class LoginModel(UserService userService) : PageModel
     {
         private readonly UserService _userService = userService;
-
+        //---------------------------------------------------------------------------------------------//
+        // Variables to receive page data
+        //---------------------------------------------------------------------------------------------//
         [BindProperty]
         public string email { get; set; }
         [BindProperty]
         public string password { get; set; }
         [BindProperty]
         public bool loginResult { get; set; }
-
+        //---------------------------------------------------------------------------------------------//
+        // On Submit validade login and return data containing status
+        //---------------------------------------------------------------------------------------------//
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -39,3 +43,4 @@ namespace AngriEnergyConnect.Pages
         }
     }
 }
+//--------------------------------...END OF FILE...-------------------------------------------------------------//

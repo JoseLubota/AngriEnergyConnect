@@ -4,8 +4,14 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace AngriEnergyConnect.Model
 {
+    //---------------------------------------------------------------------------------------------//
+    // Creates Class Product
+    //---------------------------------------------------------------------------------------------//
     public class Product
     {
+        //---------------------------------------------------------------------------------------------//
+        // Allows class to connect to convert into tables for local database
+        //---------------------------------------------------------------------------------------------//
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int productID {  get; set; }
@@ -22,3 +28,4 @@ namespace AngriEnergyConnect.Model
 
     }
 }
+//--------------------------------...END OF FILE...-------------------------------------------------------------//

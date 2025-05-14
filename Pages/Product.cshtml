@@ -5,16 +5,12 @@
     string? accountType = HttpContext.Session.GetString("accountType");
 }
 <section class="page-section">
-    @if (userID == null)
-    {
-        <div class="text-center">
-            <p>Please Log in</p>
-        </div>
-
-
+    <!-- .................................................................................................................... -->
+    <!-- Validation to decide what to show on the web page -->
+    <!-- .................................................................................................................... -->
         @* Only for Employees *@
-    }
-    else if (userID != null && accountType == "Employee")
+    
+    @if (userID != null && accountType == "Employee")
     {
         <div class="text-center">
             <h1>View All Products and Filter by Farmer ID</h1>
@@ -22,7 +18,9 @@
 
         <br />
         <br />
-
+        <!-- .................................................................................................................... -->
+        <!-- Form to insert filter form with to table with products for employees -->
+        <!-- .................................................................................................................... -->
         <form method="get" class="form-container2">
 
             <label for="filterFarmerId">Farmer ID: </label>
@@ -32,7 +30,9 @@
             <button type="submit" name="action" value="clear">Clear</button>
 
         </form>
-
+        <!-- .................................................................................................................... -->
+            <!-- Display table with  products for employees -->
+        <!-- .................................................................................................................... -->
         @if (Model.userProducts.Any())
         {
             <table class="table-product">
@@ -73,7 +73,9 @@
 
         <br />
         <br />
-
+            <!-- .................................................................................................................... -->
+            <!-- Form for farmers to insert products -->
+            <!-- .................................................................................................................... -->
         <form method="post" class="form-container">
 
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -112,7 +114,9 @@
         </form>
 
         <p>See your Products below</p>
-
+            <!-- .................................................................................................................... -->
+            <!-- Display table with all products for farmers -->
+            <!-- .................................................................................................................... -->
         @if (Model.userProducts.Any())
         {
             <table class="table-product">
@@ -139,9 +143,15 @@
         }
         else
         {
-            <p>You don not have any product added yet or you if you recently addded a product try leaving and entering this page.</p>
+            <p>You don not have any product added yet or you if you recently addded a product try realoding this page.</p>
         }
 
+    }else{
+            <div class="text-center">
+                <h1>Products</h1>
+            </div>
+            <p>Please loggin to access this page functions</p>
     }
 
 </section>
+<!-- ..........................................END OF FILE .......................................................................... -->

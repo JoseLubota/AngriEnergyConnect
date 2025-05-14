@@ -7,6 +7,7 @@ namespace AngriEnergyConnect.Pages.Shared
     {
         public IActionResult OnGet()
         {
+            // Clear current sesison usedID and accouType
             HttpContext.Session.Clear();
             return RedirectToPage("/Login");
         }

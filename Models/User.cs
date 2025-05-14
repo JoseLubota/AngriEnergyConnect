@@ -4,8 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AngriEnergyConnect.Model
 {
+    //---------------------------------------------------------------------------------------------//
+    // Creates Class User
+    //---------------------------------------------------------------------------------------------//
     public class User
     {
+        //---------------------------------------------------------------------------------------------//
+        // Allows class to connect to convert into tables for local database
+        //---------------------------------------------------------------------------------------------//
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userID {  get; set; }
@@ -27,3 +33,4 @@ namespace AngriEnergyConnect.Model
 
     }
 }
+//--------------------------------...END OF FILE...-------------------------------------------------------------//

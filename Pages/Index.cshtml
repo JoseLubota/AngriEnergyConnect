@@ -10,6 +10,9 @@
         <h1>Welcome</h1>
     </div>
 
+    <!-- .................................................................................................................... -->
+    <!-- Validation to decide what to show on the web page -->
+    <!-- .................................................................................................................... -->
     @if (userID != null && accountType == "Employee")
     {
         <p>User ID:  @userID</p>
@@ -18,6 +21,9 @@
         <br />
         <p>Filter the table using the form below</p>
 
+        <!-- .................................................................................................................... -->
+        <!-- Form to insert filter form to table with products for employees -->
+        <!-- .................................................................................................................... -->
         <form class="form-container2" method="get">
 
             <label>From: </label>
@@ -39,7 +45,9 @@
 
             <button type="submit">Filter</button>
         </form>
-
+        <!-- .................................................................................................................... -->
+        <!-- Display table with products for employees -->
+        <!-- .................................................................................................................... -->
         @if (Model.filteredProducts.Any())
         {
             <table class="table-product">
@@ -73,11 +81,13 @@
     {
         <p>User ID:  @userID</p>
         <p>Account Type: @accountType</p>
+        <p>Angri-Energy Connect is a platform for farmers to share their sustainable products, ranging from farm crops to fuels and raw materials such as wood, and many others. </p>
 
     }else{
 
-        <p>Please loggin to access this website functions</p>
+        <p>Angri-Energy Connect is a platform for farmers to share their sustainable products, ranging from farm crops to fuels and raw materials such as wood, and many others. </p>
     }
 
 
 </section>
+<!-- ..........................................END OF FILE .......................................................................... -->

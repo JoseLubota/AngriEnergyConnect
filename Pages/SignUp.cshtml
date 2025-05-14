@@ -5,12 +5,17 @@
     string? accountType = HttpContext.Session.GetString("accountType");
 }
 <section class="page-section">
-    @if (userID != null && accountType == "Employee")
+    <!-- .................................................................................................................... -->
+    <!-- Validation to decide what to show on the web page -->
+    <!-- .................................................................................................................... -->
+    @if (userID == null)
     {
         <div class="text-center">
             <h1>Sign Up - Create your Employee Account</h1>
         </div>
-
+        <!-- .................................................................................................................... -->
+        <!-- Form to create new employee acccount -->
+        <!-- .................................................................................................................... -->
         <form class="form-container" method="post">
 
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -54,7 +59,9 @@
         <div class="text-center">
             <h1>Create a Farmer Account</h1>
         </div>
-
+        <!-- .................................................................................................................... -->
+        <!-- Form to create new farmer acccount-->
+        <!-- .................................................................................................................... -->
         <form class="form-container" method="post">
 
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -100,3 +107,4 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial"/>
 }
+<!-- ..........................................END OF FILE .......................................................................... -->
