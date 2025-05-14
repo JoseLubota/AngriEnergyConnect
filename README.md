@@ -3,6 +3,7 @@
 This project is part of my assignments from The IIE Varsity College, Cape Town, 2025
 
 * Repository: https://github.com/JoseLubota/AngriEnergyConnect
+  
 # Description
 
 Angri-Energy Connect is a web-app for farmers to share their products.
@@ -11,30 +12,30 @@ Angri-Energy Connect is a web-app for farmers to share their products.
 
 Any user can create an Employee account and after they loggin they'll be able to: 
 
-*Create farmer accounts;
-*View all farmer and their products;
-*Filter products by farmer ID, date range and category.
+* Create farmer accounts;
+* View all farmer and their products;
+* Filter products by farmer ID, date range and category.
 
 While farmers will be able to:
 
-*View their products
+* View their products
 * Add new products
 
 # Requirements
 
-Microsoft Visual Studio 202
-.NWR 6.0 or later
-SQL Server Optional (Express or LocalDB)
-SQL Server Data Tools - recommended to access database 
+* Microsoft Visual Studio 202
+* .NET 6.0 or later
+* SQL Server, Optional (Express or LocalDB)
+* SQL Server Data Tools - recommended if you desire to access database 
               
 If you're installing Visual Studio include the following workloads:
-  ASP.NET and web development
-  .Net Core cross-platform development
-  SQL Server Data Tools - recommended to access database 
+* ASP.NET and web development
+* .Net Core cross-platform development
+* SQL Server Data Tools - recommended if you desire to access database 
 
 #  How to run the project
 
-*Launch visual studio
+* Launch visual studio
 * Click on "Open a project or solution"
 * Browse to the project folder and open the ".sln" file
 * In visual studio, click on  the green "Start" button
