@@ -44,9 +44,13 @@ If you're installing Visual Studio include the following workloads:
 #  References
 
 Programming 3A Module Outline 2025, From The IIE Varsity College
+
 ChatGPT: https://chatgpt.com/
+
 Types of Farm Products : https://eos.com/blog/types-of-crops/
+
 Microsoft: https://learn.microsoft.com/en-us/dotnet/standard/datetime/how-to-use-dateonly-timeonly
+
 Microsoft: https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio
 
 
