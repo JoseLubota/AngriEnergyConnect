@@ -1,11 +1,11 @@
 # AngriEnergyConnect
 
 This project is part of my assignments from The IIE Varsity College, Cape Town, 2025
+
+* Repository: https://github.com/JoseLubota/AngriEnergyConnect
 # Description
 
 Angri-Energy Connect is a web-app for farmers to share their products.
-
-* Repository: https://github.com/JoseLubota/AngriEnergyConnect
   
 # Functions 
 
