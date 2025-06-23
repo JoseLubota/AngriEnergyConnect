@@ -11,6 +11,25 @@
     </div>
 
     <!-- .................................................................................................................... -->
+    <!-- Loggin into selected account -->
+    <!-- .................................................................................................................... -->
+    <div class="quick-login-buttons">
+        <form method="post" action="/Login">
+            <input name="email" type="hidden" value="chicolubota@hotmail.com" />
+            <input name="password" type="hidden" value="0000" />
+            <button type="submit" >Login as Farmer</button>
+            @Html.AntiForgeryToken()
+        </form>
+
+        <form method="post" action="/Login">
+            <input type="hidden" name="email" value="admin@gmail.com" />
+            <input type="hidden" name="password" value="0000" />
+            <button type="submit">Login as Employee</button>
+            @Html.AntiForgeryToken()
+        </form>
+    </div>
+
+    <!-- .................................................................................................................... -->
     <!-- Validation to decide what to show on the web page -->
     <!-- .................................................................................................................... -->
     @if (userID != null && accountType == "Employee")
@@ -19,8 +38,13 @@
         <p>Account Type: @accountType</p>
 
         <br />
-        <p>Filter the table using the form below</p>
+        <div class="text-center">
+            <h1>Filter to Products</h1>
+        </div>
 
+        <br/>
+        <br/>
+        <br/>
         <!-- .................................................................................................................... -->
         <!-- Form to insert filter form to table with products for employees -->
         <!-- .................................................................................................................... -->
@@ -46,31 +70,23 @@
             <button type="submit">Filter</button>
         </form>
         <!-- .................................................................................................................... -->
-        <!-- Display table with products for employees -->
+        <!-- Display cards with products for employees -->
         <!-- .................................................................................................................... -->
         @if (Model.filteredProducts.Any())
         {
-            <table class="table-product">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Production Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var prod in Model.filteredProducts)
-                    {
-                        <tr>
-                            <td>@prod.productID</td>
-                            <td>@prod.productName</td>
-                            <td>@prod.category</td>
-                            <td>@prod.productionDate</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+
+            <div class="products-cards-container">
+                @foreach(var prod in Model.filteredProducts){
+                    <div class="product-card">
+                        <p> @prod.productID </p>
+                        <p>@prod.productName </p>
+                        <p> @prod.category </p>
+                        <p><strong>Production Date</strong> @prod.productionDate.ToString("dd/MMMM/yyyy") </p>
+                    </div>
+
+                }
+
+            </div>
         }
         else
         {

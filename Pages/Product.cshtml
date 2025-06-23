@@ -31,33 +31,23 @@
 
         </form>
         <!-- .................................................................................................................... -->
-            <!-- Display table with  products for employees -->
+            <!-- Display cards with  products for employees -->
         <!-- .................................................................................................................... -->
         @if (Model.userProducts.Any())
         {
-            <table class="table-product">
-                <thead>
-                    <tr>
-                        <th>Farmer ID</th>
-                        <th>product ID</th>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Production Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var prod in Model.userProducts)
-                    {
-                        <tr>
-                            <td>@prod.userID</td>
-                            <td>@prod.productID</td>
-                            <td>@prod.productName</td>
-                            <td>@prod.category</td>
-                            <td>@prod.productionDate</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+            <div class="products-cards-container">
+                @foreach (var prod in Model.userProducts)
+                {
+                    <div class="product-card">
+                        <p><strong>Farmer ID </strong>@prod.userID</p>
+                        <p><strong>Product ID </strong>@prod.productID</p>
+                        <p>@prod.productName</p>
+                        <p>@prod.category</p>
+                        <p><strong>Production Date</strong> @prod.productionDate.ToString("dd/MMMM/yyyy") </p>
+                    </div>
+
+                }
+            </div>
         }
         else
         {
@@ -112,34 +102,26 @@
             </div>
 
         </form>
-
-        <p>See your Products below</p>
+        <div class="text-center">
+            <h1>All Products</h1>
+        </div>
+        
             <!-- .................................................................................................................... -->
-            <!-- Display table with all products for farmers -->
+            <!-- Display cards with all products for farmers -->
             <!-- .................................................................................................................... -->
         @if (Model.userProducts.Any())
         {
-            <table class="table-product">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Production Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var prod in Model.userProducts)
-                    {
-                        <tr>
-                            <td>@prod.productID</td>
-                            <td>@prod.productName</td>
-                            <td>@prod.category</td>
-                            <td>@prod.productionDate</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+            <div class="products-cards-container">
+                @foreach (var prod in Model.userProducts)
+                {
+                    <div class="product-card">
+                        <p><strong>ID </strong>@prod.productID</p>
+                        <p>@prod.productName</p>
+                        <p>@prod.category</p>
+                        <p><strong>Production Date</strong> @prod.productionDate.ToString("dd/MMMM/yyyy") </p>
+                    </div>
+                } 
+            </div>
         }
         else
         {

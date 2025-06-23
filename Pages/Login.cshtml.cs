@@ -22,17 +22,27 @@ namespace AngriEnergyConnect.Pages
         //---------------------------------------------------------------------------------------------//
         public async Task<IActionResult> OnPostAsync()
         {
+            if(string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                TempData["LoginResult"] = "fail";
+                return Page();
+
+            }
+            /*
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            */
             var success = await _userService.LoginAsync(email, password); 
             loginResult = success;
+
             if (success) 
             {
                 TempData["LoginResult"] = "";
                 return RedirectToPage("/Index");
             }
+
             TempData["LoginResult"] = "fail";
             return Page();
 
