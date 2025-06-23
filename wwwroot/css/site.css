@@ -56,7 +56,7 @@ img {
 body {
     margin: 0;
     padding: 0;
-    background-color: lightgray;
+    background-color: #192911;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -74,6 +74,7 @@ a {
     font-size: 2.25em;
     font-weight: bold;
     margin: 0 10px;
+    color: #84a465;
 }
 
 .nav-item a {
@@ -88,6 +89,11 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+}
+
+.navbar-nav .nav-link {
+    color: #84a465 !important;
+    font-weight: bold;
 }
 
 .table {
@@ -106,7 +112,7 @@ a {
     }
 
 .page-section {
-    background-color: rgb(45,45,45);
+    background-color: #84a465;
     padding: 20px;
     flex-grow: 1;
     padding-bottom: 200px;

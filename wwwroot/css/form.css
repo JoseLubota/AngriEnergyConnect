@@ -1,8 +1,8 @@
 ﻿.form-container {
     width: 900px;
     background: rgba(255,255,255);
+    border: 6px solid #cea86f;
     border-radius: 10px;
-    box-shadow: 1px 2px 10px white, 2px 6px 50px white;
     padding: 50px 20px;
     margin-inline: auto;
     margin-top: 10px;
@@ -15,7 +15,7 @@
     background: transparent;
     border: none;
     outline: none;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #cea86f;
     color: black;
 }
 
@@ -30,12 +30,13 @@
         left: 0;
         transform: translateY(10px);
         transition: .25s ease-in-out;
-        color: crimson;
+        color: #cea86f;
+        font-weight: bold;
     }
 
     .input-field input:focus {
-        box-shadow: 0 1px 0 0 Blue;
-        border-bottom: Blue 2px solid;
+        box-shadow: 0 1px 0 0 Green;
+        border-bottom: Green 2px solid;
     }
 
 .buttom-field {
@@ -47,8 +48,10 @@
         background: transparent;
         padding: 15px 50px;
         border-radius: 20px;
-        border: 2px solid;
+        border: 2px solid #192911;
+        font-weight: bold;
         padding-top: 20px;
+        color: #84a465;
         cursor: pointer;
     }
 
@@ -59,7 +62,7 @@
 
     .file-field label {
         font-weight: bold;
-        color: crimson;
+        color: #cea86f;
         padding-right: 60px;
     }
 
@@ -77,11 +80,11 @@
         padding-bottom: 20px;
         margin: auto;
         font-weight: bold;
-        color: crimson;
+        color: #cea86f;
     }
 
 .buttom-field button:hover {
-    background-color: firebrick;
+    background-color: #192911;
     color: white;
     font-weight: bold;
 }
@@ -106,7 +109,8 @@
     }
 
 .input-field input::placeholder {
-    color: crimson;
+    color: #cea86f;
+    
 }
 .select-field{
     display: flex;
@@ -115,17 +119,17 @@
     margin-bottom: 30px;
     gap: 15px;
 }
-    .select-field label{
+    .select-field label {
         font-weight: bold;
-        color: crimson;
+        color: #cea86f;
         width: 150px;
     }
-    .select-field select{
+    .select-field select {
         flex: 1;
         height: 40px;
         background: transparent;
         border: none;
-        border-bottom: 2px solid red;
+        border-bottom: 2px solid #cea86f;
         color: black;
         font-size: 16px;
         padding: 5px 10px;
@@ -133,8 +137,8 @@
         transition: border-color 0.3s, box-shadow 0.3s;
     }
         .select-field select:focus{
-            border-bottom: 2px solid blue;
-            box-shadow: 0 1px 0 0 blue;
+            border-bottom: 2px solid green;
+            box-shadow: 0 1px 0 0 green;
         }
         .select-field select option{
             color: black;

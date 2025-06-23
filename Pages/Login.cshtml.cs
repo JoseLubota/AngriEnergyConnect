@@ -30,8 +30,8 @@ namespace AngriEnergyConnect.Pages
             loginResult = success;
             if (success) 
             {
-                TempData["LoginResult"] = "sucess";
-                return RedirectToAction("Index");
+                TempData["LoginResult"] = "";
+                return RedirectToPage("/Index");
             }
             TempData["LoginResult"] = "fail";
             return Page();
