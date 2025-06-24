@@ -62,4 +62,3 @@ Microsoft: https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspne
 * Layout - The website theam color has been changed to fit with Angri-Energy idea.
 * Layout - Products display has been changed to use cards instead of tables.
 * Login - Added buttons for fast login.
-* Folder - Added file for controllers
