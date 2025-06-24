@@ -11,15 +11,29 @@
     border-radius: 15px;
     padding: 20px;
     width: 280px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
     color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
-    .product-card::after hover {
+    .product-card:hover {
         transform: scale(1.03);
-        border-color: #192911;
+        border-color: #ffe240;
     }
 .product-card p{
-    color: black;
+    color: white;
     margin: 10px 0;
+}
+.card-id{
+    background-color: #192911;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
+    width: 100%;
 }

@@ -78,7 +78,7 @@
             <div class="products-cards-container">
                 @foreach(var prod in Model.filteredProducts){
                     <div class="product-card">
-                        <p> @prod.productID </p>
+                        <div class="card-id"> @prod.productID </div>
                         <p>@prod.productName </p>
                         <p> @prod.category </p>
                         <p><strong>Production Date</strong> @prod.productionDate.ToString("dd/MMMM/yyyy") </p>

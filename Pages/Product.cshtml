@@ -39,8 +39,8 @@
                 @foreach (var prod in Model.userProducts)
                 {
                     <div class="product-card">
-                        <p><strong>Farmer ID </strong>@prod.userID</p>
-                        <p><strong>Product ID </strong>@prod.productID</p>
+                        <div class="card-id">Farmer  ID @prod.userID</div>
+                        <div class="card-id">Product ID @prod.productID</div>
                         <p>@prod.productName</p>
                         <p>@prod.category</p>
                         <p><strong>Production Date</strong> @prod.productionDate.ToString("dd/MMMM/yyyy") </p>
@@ -115,7 +115,7 @@
                 @foreach (var prod in Model.userProducts)
                 {
                     <div class="product-card">
-                        <p><strong>ID </strong>@prod.productID</p>
+                        <div class="card-id">Product ID @prod.productID</div>
                         <p>@prod.productName</p>
                         <p>@prod.category</p>
                         <p><strong>Production Date</strong> @prod.productionDate.ToString("dd/MMMM/yyyy") </p>
