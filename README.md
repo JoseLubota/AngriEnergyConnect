@@ -2,7 +2,7 @@
 
 This project is part of my assignments from The IIE Varsity College, Cape Town, 2025
 
-* Repository: https://github.com/JoseLubota/AngriEnergyConnect
+* Repository: [https://github.com/JoseLubota/AngriEnergyConnect](https://github.com/VCCT-PROG3A-2025-G2/ST10376126_Jose_PROG7311_Part02)
   
 # Description
 
@@ -51,9 +51,15 @@ Types of Farm Products : https://eos.com/blog/types-of-crops/
 
 Microsoft: https://learn.microsoft.com/en-us/dotnet/standard/datetime/how-to-use-dateonly-timeonly
 
+Palette themes:  https://icolorpalette.com/palette-by-themes/farm
+
+W3School: https://www.w3schools.com/howto/howto_css_cards.asp
+
 Microsoft: https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio
 
+# Modification from Part 2 to POE
 
-
-
-
+* Layout - The website theam color has been changed to fit with Angri-Energy idea.
+* Layout - Products display has been changed to use cards instead of tables.
+* Login - Added buttons for fast login.
+* Folder - Added file for controllers
